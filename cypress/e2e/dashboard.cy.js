@@ -22,4 +22,12 @@ describe('Dashboard review', () => {
         cy.get('#account_number').contains('(41 4100 1111 1111 1111 1111 0000)');
         cy.get('#money_value').contains('13159');
     });
+
+    it('Checks information about available funds', () => {
+        cy.contains('więcej').click();
+        cy.contains('blokady na koncie');
+        cy.get('.form-static.grid-22.grid-mt-16.grid-ms-48').contains('300');
+        cy.contains('limit kredytowy do wykorzystania');
+        cy.get('.form-static.grid-22.grid-mt-28.grid-ms-48').contains('10 000');
+    });
 });

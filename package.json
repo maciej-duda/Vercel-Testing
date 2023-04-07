@@ -3,7 +3,8 @@
     "cypress": "^12.9.0"
   },
   "scripts": {
-    "cy:o": "cypress open"
+    "cy:o": "cypress open",
+    "cy:r": "cypress run"
   }
 }
 
