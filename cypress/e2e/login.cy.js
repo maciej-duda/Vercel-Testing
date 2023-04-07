@@ -21,4 +21,24 @@ describe('Login Tests', () => {
         cy.get('[data-testid="login-input"]').click();
         cy.get('[data-testid="error-login-password"]').contains("pole wymagane");
       });
+
+    it('Checks if button is disabled when no data is provided or wrong data is provided', () => {
+      cy.fixture('user_data.json').then((testData) => {
+        cy.get('[data-testid="login-button"]').should('be.disabled');
+        cy.get('[data-testid="login-input"]').type(testData.invalidUser.user_id);
+        cy.get('[data-testid="password-input"]').type(testData.invalidUser.password);
+        cy.get('[data-testid="login-button"]').should('be.disabled');
+      });
     });
+
+    it('Checks error message for username and password that doesnt match requirements', () => {
+        cy.fixture('user_data.json').then((testData) => {
+          cy.get('[data-testid="login-input"]').type(testData.invalidUser.user_id);
+          cy.get('[data-testid="password-input"]').type(testData.invalidUser.password);
+          cy.get('[data-testid="login-input"]').click();
+          cy.get('[data-testid="error-login-id"]').contains("identyfikator ma min. 8 znaków");
+          cy.get('[data-testid="error-login-password"]').contains("hasło ma min. 8 znaków");
+        });
+      });
+
+  });
