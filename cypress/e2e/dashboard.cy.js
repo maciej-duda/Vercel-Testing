@@ -20,5 +20,6 @@ describe('Dashboard review', () => {
     it('Checks basic information about customer', () => {
         cy.get('#user_name').contains('Jan Demobankowy');
         cy.get('#account_number').contains('(41 4100 1111 1111 1111 1111 0000)');
+        cy.get('#money_value').contains('13159,20');
     });
 });
