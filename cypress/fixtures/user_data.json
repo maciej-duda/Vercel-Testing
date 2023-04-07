@@ -2,5 +2,9 @@
   "validUser": {
     "user_id": "12345678",
     "password": "1qazXSW@"
+  },
+  "invalidUser": {
+    "user_id": "1234567",
+    "password": "1qazXSW@"
   }
 }
