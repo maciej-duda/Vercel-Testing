@@ -10,12 +10,14 @@ describe('Login Tests', () => {
         cy.get('[data-testid="login-button"]').as('loginButton');
       });
 
-      it('Type correct credentials and check if user is redirected to the dashboard', () => {
+      it('Type correct credentials and check if user is redirected to the dashboard then logout', () => {
         cy.fixture('user_data.json').then((testData) => {
           cy.get('@loginInput').type(testData.validUser.user_id);
           cy.get('@passwordInput').type(testData.validUser.password);
           cy.get('@loginButton').click();
           cy.url().should('include', '/pulpit.html');
+          cy.get('[data-testid="logout-button"').click();
+          cy.url().should('include', '/index.html');
         });
       });
   
