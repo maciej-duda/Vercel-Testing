@@ -1,9 +1,5 @@
 describe('Login Tests', () => {
 
-    before(() => {
-        cy.fixture('user_data.json').as('testData');
-      });
-
     beforeEach(() => {
         cy.visit('/index.html'); 
         cy.url().should('include', '/index.html');
@@ -12,7 +8,6 @@ describe('Login Tests', () => {
         cy.get('[data-testid="login-input"]').as('loginInput');
         cy.get('[data-testid="password-input"]').as('passwordInput');
         cy.get('[data-testid="login-button"]').as('loginButton');
-        cy.fixture('user_data.json').as('testData');
       });
 
       it('Type correct credentials and check if user is redirected to the dashboard', () => {
